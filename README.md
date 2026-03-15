@@ -177,7 +177,7 @@ Requires OKLCH color support and `color-mix()`. This is a forward-looking framew
 
 ## License
 
-MIT License – Use freely in personal and commercial projects.
+[MIT License](https://github.com/ludothegreat/stdout-css/tree/main?tab=MIT-1-ov-file) – Use freely in personal and commercial projects.
 
 ---
 
