@@ -1384,6 +1384,33 @@ input[type="radio"]:disabled:hover {
 }
 
 /* ============================================
+   ACCESSIBILITY - SKIP NAVIGATION
+   ============================================ */
+.skip-nav {
+    position: absolute;
+    top: -100%;
+    left: var(--space-md);
+    z-index: 9999;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--green-primary);
+    color: var(--gray-900);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+    transition: top 200ms var(--ease-out-quad);
+}
+
+.skip-nav:focus {
+    top: var(--space-md);
+    outline: 2px solid var(--green-light);
+    outline-offset: 2px;
+}
+
+/* ============================================
    SUCCESS ANIMATIONS & DELIGHT
    ============================================ */
 @keyframes checkmark-draw {
