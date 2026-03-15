@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stdout.css - Component Showcase</title>
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Required fonts: Space Mono (headings), IBM Plex Sans (body), JetBrains Mono (code) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../stdout.css">
+    <style>
+        /* Page-specific layout */
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-2xl);
+        }
+
+        .showcase-section {
+            margin-bottom: var(--space-3xl);
+            padding-bottom: var(--space-3xl);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .showcase-section:last-child {
+            border-bottom: none;
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .component-demo {
+            padding: var(--space-xl);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* Skip navigation link */
+        .skip-nav {
+            position: absolute;
+            top: -100%;
+            left: var(--space-md);
+            z-index: 9999;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--green-primary);
+            color: var(--gray-900);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skip-nav:focus {
+            top: var(--space-md);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-nav">Skip to content</a>
+    <div class="showcase-container">
+    <main id="main">
+        <!-- Header -->
+        <header style="margin-bottom: var(--space-3xl);">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-lg);">
+                <div>
+                    <h1>STDOUT.CSS</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.125rem;">
+                        Terminal Brutalism Component Showcase
+                    </p>
+                </div>
+                <a href="app-shell.html" class="action-btn secondary" style="text-decoration: none; white-space: nowrap; margin-top: var(--space-sm);">APP SHELL DEMO →</a>
+            </div>
+        </header>
+
+        <!-- Buttons -->
+        <section class="showcase-section">
+            <h2>BUTTONS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Primary, secondary, danger, and utility button variants
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md); margin-bottom: var(--space-lg);">
+                <button class="action-btn">PRIMARY</button>
+                <button class="action-btn secondary">SECONDARY</button>
+                <button class="action-btn danger">DANGER</button>
+                <button class="action-btn small">SMALL</button>
+                <button class="action-btn" disabled>DISABLED</button>
+                <button class="action-btn loading" aria-label="Loading, please wait">LOADING</button>
+                <button class="action-btn secondary loading" aria-label="Loading, please wait">LOADING</button>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md);">
+                <button class="icon-btn">ICON BUTTON</button>
+                <button class="copy-btn">COPY</button>
+                <button class="text-btn">TEXT BUTTON</button>
+            </div>
+        </section>
+
+        <!-- Forms -->
+        <section class="showcase-section">
+            <h2>FORMS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Input fields, textareas, selects, checkboxes, and radio buttons
+            </p>
+
+            <div style="max-width: 600px;">
+                <div class="form-field">
+                    <label class="form-label" for="demo-text">TEXT INPUT</label>
+                    <input
+                        type="text"
+                        id="demo-text"
+                        class="form-input"
+                        placeholder="Enter text..."
+                    >
+                    <p class="form-help">Optional help text appears here</p>
+                </div>
+
+                <div class="form-field">
+                    <label class="form-label" for="demo-textarea">TEXTAREA</label>
+                    <textarea
+                        id="demo-textarea"
+                        class="form-textarea"
+                        rows="4"
+                        placeholder="Enter multiline text..."
+                    ></textarea>
+                </div>
+
+                <div class="form-field">
+                    <label class="form-label" for="demo-select">SELECT</label>
+                    <select id="demo-select" class="form-select">
+                        <option value="a">Option A</option>
+                        <option value="b">Option B</option>
+                        <option value="c" disabled>Option C (disabled)</option>
+                    </select>
+                </div>
+
+                <label class="checkbox-control">
+                    <input type="checkbox" checked>
+                    <span>CHECKBOX (CHECKED)</span>
+                </label>
+                <label class="checkbox-control">
+                    <input type="checkbox" disabled>
+                    <span>CHECKBOX (DISABLED)</span>
+                </label>
+
+                <div class="form-field" style="margin-top: var(--space-md);">
+                    <p class="form-label">RADIO GROUP</p>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-sm);">
+                        <label class="radio-control">
+                            <input type="radio" name="demo-radio" value="a">
+                            <span>OPTION A</span>
+                        </label>
+                        <label class="radio-control">
+                            <input type="radio" name="demo-radio" value="b" checked>
+                            <span>OPTION B (CHECKED)</span>
+                        </label>
+                        <label class="radio-control">
+                            <input type="radio" name="demo-radio" value="c" disabled>
+                            <span>OPTION C (DISABLED)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Validation states -->
+                <hr class="divider" style="margin: var(--space-lg) 0;">
+                <p class="form-label" style="margin-bottom: var(--space-md);">VALIDATION STATES</p>
+
+                <div class="form-field error">
+                    <label class="form-label" for="email-error">
+                        EMAIL INPUT (ERROR) <span class="required" aria-hidden="true">*</span>
+                    </label>
+                    <input
+                        type="email"
+                        id="email-error"
+                        class="form-input"
+                        value="not-an-email"
+                        aria-describedby="email-error-msg"
+                        aria-invalid="true"
+                    >
+                    <p class="form-error" id="email-error-msg" role="alert">Enter a valid email address</p>
+                </div>
+
+                <div class="form-field success">
+                    <label class="form-label" for="input-success">TEXT INPUT (SUCCESS / READONLY)</label>
+                    <input
+                        type="text"
+                        id="input-success"
+                        class="form-input"
+                        value="validated-value"
+                        readonly
+                        aria-describedby="input-success-help"
+                    >
+                    <p class="form-help" id="input-success-help">Input validated — read-only</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Range Sliders -->
+        <section class="showcase-section">
+            <h2>SLIDERS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Range inputs with live value display
+            </p>
+
+            <div style="max-width: 480px; display: flex; flex-direction: column; gap: var(--space-lg);">
+                <div class="slider-field">
+                    <label class="form-label" for="slider1">RANGE</label>
+                    <div class="slider-row">
+                        <input type="range" id="slider1" class="slider" min="0" max="100" value="40" oninput="syncSlider(this)">
+                        <span class="slider-value">40</span>
+                    </div>
+                </div>
+
+                <div class="slider-field">
+                    <label class="form-label" for="slider2">RANGE (STEPPED)</label>
+                    <div class="slider-row">
+                        <input type="range" id="slider2" class="slider" min="0" max="5000" step="100" value="1500" oninput="syncSlider(this)">
+                        <span class="slider-value">1500</span>
+                    </div>
+                </div>
+
+                <div class="slider-field">
+                    <label class="form-label" for="slider3">RANGE (DISABLED)</label>
+                    <div class="slider-row">
+                        <input type="range" id="slider3" class="slider" min="1" max="10" value="3" disabled>
+                        <span class="slider-value" style="opacity: 0.5;">3</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toggle Switches -->
+        <section class="showcase-section">
+            <h2>TOGGLE SWITCHES</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Binary on/off controls
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                <label class="toggle-switch">
+                    <input type="checkbox" role="switch">
+                    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                    <span>TOGGLE (OFF)</span>
+                </label>
+                <label class="toggle-switch">
+                    <input type="checkbox" role="switch" checked>
+                    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                    <span>TOGGLE (ON)</span>
+                </label>
+                <label class="toggle-switch">
+                    <input type="checkbox" role="switch" disabled>
+                    <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                    <span>TOGGLE (DISABLED)</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Tables -->
+        <section class="showcase-section">
+            <h2>TABLES</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Data tables with row selection and actions
+            </p>
+
+            <div class="data-table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;"></th>
+                            <th>TITLE</th>
+                            <th>STATUS</th>
+                            <th style="width: 120px;">ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="data-checkbox"></td>
+                            <td>
+                                <div class="data-title">row-default</div>
+                                <div class="data-description">Default row — no modifier class</div>
+                            </td>
+                            <td>
+                                <span class="badge success">SUCCESS</span>
+                            </td>
+                            <td class="data-actions">
+                                <button class="icon-btn">EDIT</button>
+                            </td>
+                        </tr>
+                        <tr class="selected">
+                            <td><input type="checkbox" class="data-checkbox" checked></td>
+                            <td>
+                                <div class="data-title">row-selected</div>
+                                <div class="data-description">Selected row — .selected modifier</div>
+                            </td>
+                            <td>
+                                <span class="badge warning">WARNING</span>
+                            </td>
+                            <td class="data-actions">
+                                <button class="icon-btn">EDIT</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="data-checkbox"></td>
+                            <td>
+                                <div class="data-title">row-error</div>
+                                <div class="data-description">Error badge variant</div>
+                            </td>
+                            <td>
+                                <span class="badge error">ERROR</span>
+                            </td>
+                            <td class="data-actions">
+                                <button class="icon-btn">EDIT</button>
+                            </td>
+                        </tr>
+                        <tr class="archived">
+                            <td><input type="checkbox" class="data-checkbox"></td>
+                            <td>
+                                <div class="data-title">row-archived</div>
+                                <div class="data-description">Archived row — .archived modifier</div>
+                            </td>
+                            <td>
+                                <span class="badge info">INFO</span>
+                            </td>
+                            <td class="data-actions">
+                                <button class="icon-btn">EDIT</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Badges -->
+        <section class="showcase-section">
+            <h2>BADGES</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Status indicators for success, warning, error, and info states
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md);">
+                <span class="badge success">ACTIVE</span>
+                <span class="badge warning">PENDING</span>
+                <span class="badge error">FAILED</span>
+                <span class="badge info">ARCHIVED</span>
+            </div>
+        </section>
+
+        <!-- Code Boxes -->
+        <section class="showcase-section">
+            <h2>CODE BOXES</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Display commands and code with copy buttons
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-lg); max-width: 700px;">
+                <div class="code-box">
+                    <code>command --flag value --option other-value</code>
+                    <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                </div>
+
+                <div class="code-block">step one
+step two --with-flag
+step three | pipe-to-next
+# comment line</div>
+            </div>
+        </section>
+
+        <!-- Loading States -->
+        <section class="showcase-section">
+            <h2>LOADING STATES</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Spinners, skeleton screens, and empty states
+            </p>
+
+            <div class="component-grid">
+                <!-- Spinner -->
+                <div class="component-demo">
+                    <h4>SPINNER</h4>
+                    <div class="loading-state">
+                        <div class="loading-spinner" aria-label="Loading" role="status"><span></span></div>
+                        <p>Loading...</p>
+                    </div>
+                </div>
+
+                <!-- Skeleton -->
+                <div class="component-demo">
+                    <h4>SKELETON</h4>
+                    <div class="skeleton skeleton-row"></div>
+                    <div class="skeleton skeleton-row" style="margin-top: 1px;"></div>
+                    <div class="skeleton skeleton-row" style="margin-top: 1px;"></div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="component-demo">
+                    <h4>EMPTY STATE</h4>
+                    <div class="empty-state" style="padding: var(--space-xl);">
+                        <div class="empty-state-icon">✨</div>
+                        <h3 class="empty-state-title" style="font-size: 0.9rem;">NO ITEMS YET</h3>
+                        <p class="empty-state-description" style="font-size: 0.8rem; margin-bottom: var(--space-md);">
+                            Create your first item
+                        </p>
+                        <div class="empty-state-action">
+                            <button class="action-btn small">CREATE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Messages -->
+        <section class="showcase-section">
+            <h2>MESSAGES</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Error and warning message boxes
+            </p>
+
+            <div style="max-width: 600px;">
+                <div class="error-message">
+                    <strong>Error:</strong> Failed to connect to server. Check your network connection and try again.
+                </div>
+
+                <div class="warning-box">
+                    <strong>Warning:</strong> This action cannot be undone. Please confirm before proceeding.
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="showcase-section">
+            <h2>TYPOGRAPHY</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Heading levels, text styles, and inline elements
+            </p>
+
+            <div style="max-width: 700px;">
+                <h1 style="margin-bottom: var(--space-md);">H1 HEADING</h1>
+                <h2 style="margin-bottom: var(--space-md);">H2 HEADING</h2>
+                <h3 style="margin-bottom: var(--space-md);">H3 HEADING</h3>
+                <h4 style="margin-bottom: var(--space-md);">H4 HEADING</h4>
+                <h5 style="margin-bottom: var(--space-lg);">H5 HEADING</h5>
+
+                <p style="margin-bottom: var(--space-md);">
+                    This is regular body text using IBM Plex Sans. It's designed for readability with a comfortable line-height of 1.5.
+                </p>
+
+                <p style="color: var(--text-muted); margin-bottom: var(--space-md);">
+                    This is muted text, often used for help text or secondary information.
+                </p>
+
+                <p style="margin-bottom: var(--space-md);">
+                    All the standard stuff: <strong>bold</strong>, <em>italic</em>, <u>underlined</u>,
+                    <del>deleted</del>, <ins>inserted</ins>, and <small>small text</small>.
+                </p>
+
+                <p style="margin-bottom: var(--space-md);">
+                    <mark>Highlighted text</mark> using the <code>&lt;mark&gt;</code> element.
+                    Inline <code>code snippets</code> and keyboard shortcuts like <kbd>Ctrl+K</kbd> or <kbd>Alt+F4</kbd>.
+                </p>
+
+                <p style="margin-bottom: var(--space-md);">
+                    <abbr title="Cascading Style Sheets">CSS</abbr> abbreviations get a dotted underline.
+                    Superscript<sup>1</sup> and subscript<sub>2</sub> in monospace.
+                </p>
+
+                <blockquote>
+                    The terminal is the most honest interface.
+                    <cite>— stdout.css philosophy</cite>
+                </blockquote>
+
+                <p style="margin-top: var(--space-md);">
+                    Utility classes:
+                    <span class="text-green">Green text</span>,
+                    <span class="text-orange">Orange text</span>,
+                    <span class="text-error">Error text</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Progress Bars -->
+        <section class="showcase-section">
+            <h2>PROGRESS BARS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Determinate and indeterminate progress variants
+            </p>
+
+            <div style="max-width: 480px; display: flex; flex-direction: column; gap: var(--space-lg);">
+                <div class="progress-field">
+                    <div class="progress-header">
+                        <span class="progress-label">DEFAULT</span>
+                        <span class="progress-value">72%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar" style="width: 72%;"></div>
+                    </div>
+                </div>
+
+                <div class="progress-field">
+                    <div class="progress-header">
+                        <span class="progress-label">SUCCESS</span>
+                        <span class="progress-value">100%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar success" style="width: 100%;"></div>
+                    </div>
+                </div>
+
+                <div class="progress-field">
+                    <div class="progress-header">
+                        <span class="progress-label">WARNING</span>
+                        <span class="progress-value" style="color: var(--status-warning);">89%</span>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar warning" style="width: 89%;"></div>
+                    </div>
+                </div>
+
+                <div class="progress-field">
+                    <div class="progress-header">
+                        <span class="progress-label">ERROR + THICK</span>
+                        <span class="progress-value" style="color: var(--status-error);">97%</span>
+                    </div>
+                    <div class="progress thick" role="progressbar" aria-valuenow="97" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar error" style="width: 97%;"></div>
+                    </div>
+                </div>
+
+                <div class="progress-field">
+                    <div class="progress-header">
+                        <span class="progress-label">THIN + INDETERMINATE</span>
+                        <span class="progress-value">—</span>
+                    </div>
+                    <div class="progress thin" role="progressbar" aria-label="Loading, please wait">
+                        <div class="progress-bar indeterminate"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidebar Nav -->
+        <section class="showcase-section">
+            <h2>SIDEBAR NAVIGATION</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Vertical navigation with groups, active states, and sub-items
+            </p>
+
+            <div style="display: flex; gap: var(--space-xl); align-items: flex-start;">
+                <nav style="width: 220px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: var(--space-md) 0;">
+                    <div class="nav-sidebar">
+                        <div class="nav-group">
+                            <div class="nav-group-label">MAIN</div>
+                            <a href="#" class="nav-item" aria-current="page">OVERVIEW</a>
+                            <a href="#" class="nav-item">RECORDS <span class="nav-item-count">12</span></a>
+                            <a href="#" class="nav-item">ACTIVITY</a>
+                            <a href="#" class="nav-item">REPORTS</a>
+                        </div>
+                        <div class="nav-group">
+                            <div class="nav-group-label">SETTINGS</div>
+                            <a href="#" class="nav-item">PROFILE</a>
+                            <a href="#" class="nav-item">ACCESS TOKENS</a>
+                            <a href="#" class="nav-item nav-item-sub">SSH KEYS</a>
+                            <a href="#" class="nav-item nav-item-sub">API KEYS</a>
+                            <a href="#" class="nav-item">AUDIT LOG</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Pagination -->
+        <section class="showcase-section">
+            <h2>PAGINATION</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Page navigation for tables and lists
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                <nav aria-label="Pagination">
+                    <div class="pagination">
+                        <a class="page-item" aria-disabled="true">&#8592; PREV</a>
+                        <a class="page-item" aria-current="page">1</a>
+                        <a class="page-item" href="#">2</a>
+                        <a class="page-item" href="#">3</a>
+                        <a class="page-item" href="#">4</a>
+                        <a class="page-item" href="#">5</a>
+                        <a class="page-item" href="#">NEXT &#8594;</a>
+                    </div>
+                </nav>
+
+                <nav aria-label="Pagination">
+                    <div class="pagination">
+                        <a class="page-item" href="#">&#8592; PREV</a>
+                        <a class="page-item" href="#">4</a>
+                        <a class="page-item" aria-current="page">5</a>
+                        <a class="page-item" href="#">6</a>
+                        <a class="page-item" href="#">NEXT &#8594;</a>
+                    </div>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Breadcrumbs -->
+        <section class="showcase-section">
+            <h2>BREADCRUMBS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Wayfinding navigation for hierarchical pages
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumbs">
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">HOME</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">SECTION</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">SUBSECTION</a></li>
+                        <li class="breadcrumb-item" aria-current="page">SETTINGS</li>
+                    </ol>
+                </nav>
+
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumbs">
+                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">OVERVIEW</a></li>
+                        <li class="breadcrumb-item" aria-current="page">ACTIVITY</li>
+                    </ol>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Tooltips -->
+        <section class="showcase-section">
+            <h2>TOOLTIPS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Add <code>data-tooltip="text"</code> to any element. Pure CSS, no JavaScript.
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-xl); align-items: center; padding: var(--space-xl) 0;">
+                <button class="action-btn" data-tooltip="Tooltip appears above by default">TOOLTIP TOP</button>
+                <button class="action-btn secondary tooltip-bottom" data-tooltip="Opens below the element">TOOLTIP BELOW</button>
+                <button class="action-btn danger tooltip-right" data-tooltip="Appears to the right">TOOLTIP RIGHT</button>
+                <button class="action-btn secondary tooltip-left" data-tooltip="Appears to the left">TOOLTIP LEFT</button>
+            </div>
+        </section>
+
+        <!-- Modal Example (hidden by default) -->
+        <section class="showcase-section">
+            <h2>MODALS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Click button to show modal dialog
+            </p>
+
+            <button class="action-btn" onclick="showModal()">SHOW MODAL</button>
+        </section>
+
+        <!-- Tabs -->
+        <section class="showcase-section">
+            <h2>TABS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Pure CSS tabbed interface — no JavaScript required
+            </p>
+
+            <div class="tabs">
+                <input type="radio" name="showcase-tabs" id="showcase-tab1" class="tab-input" checked>
+                <input type="radio" name="showcase-tabs" id="showcase-tab2" class="tab-input">
+                <input type="radio" name="showcase-tabs" id="showcase-tab3" class="tab-input">
+
+                <div class="tab-list">
+                    <label class="tab-label" for="showcase-tab1">OVERVIEW</label>
+                    <label class="tab-label" for="showcase-tab2">CONFIGURATION</label>
+                    <label class="tab-label" for="showcase-tab3">LOGS</label>
+                </div>
+
+                <div class="tab-panels">
+                    <div class="tab-panel">
+                        <p>This is the <strong>Overview</strong> tab. Each tab panel can contain any HTML — text, forms, tables, code blocks, or other components.</p>
+                    </div>
+                    <div class="tab-panel">
+                        <p style="margin-bottom: var(--space-md);">This is the <strong>Configuration</strong> tab.</p>
+                        <div class="form-field">
+                            <label class="form-label" for="config-input">ENDPOINT</label>
+                            <input type="text" id="config-input" class="form-input" placeholder="https://api.example.com">
+                        </div>
+                    </div>
+                    <div class="tab-panel">
+                        <div class="code-block">2024-01-15 10:23:41 INFO  Server started on :8080
+2024-01-15 10:23:42 INFO  Connected to database
+2024-01-15 10:24:01 WARN  High memory usage detected
+2024-01-15 10:24:15 INFO  Request processed in 42ms</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accordions -->
+        <section class="showcase-section">
+            <h2>ACCORDIONS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Collapsible sections using native &lt;details&gt; — no JavaScript required
+            </p>
+
+            <div class="accordion" style="max-width: 600px;">
+                <details class="accordion-item">
+                    <summary class="accordion-header">INSTALLATION</summary>
+                    <div class="accordion-body">
+                        <p>Download <code>stdout.css</code> and link it in your HTML <code>&lt;head&gt;</code>. No build tools or dependencies required.</p>
+                    </div>
+                </details>
+                <details class="accordion-item" open>
+                    <summary class="accordion-header">CONFIGURATION</summary>
+                    <div class="accordion-body">
+                        <p>Override CSS custom properties in your own stylesheet to customize colors, typography, and spacing. All design tokens are exposed as <code>--variables</code>.</p>
+                    </div>
+                </details>
+                <details class="accordion-item">
+                    <summary class="accordion-header">BROWSER SUPPORT</summary>
+                    <div class="accordion-body">
+                        <p>Requires OKLCH color support: Chrome 111+, Firefox 113+, Safari 15.4+. The <code>&lt;details&gt;</code> element is supported in all modern browsers.</p>
+                    </div>
+                </details>
+                <details class="accordion-item">
+                    <summary class="accordion-header">LICENSE</summary>
+                    <div class="accordion-body">
+                        <p>MIT License. Free to use in personal and commercial projects.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Command Palette -->
+        <section class="showcase-section">
+            <h2>COMMAND PALETTE</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Keyboard-driven command interface. Press <code>Cmd+K</code> / <code>Ctrl+K</code> or click the button.
+            </p>
+
+            <button class="action-btn" onclick="showCommandPalette()">OPEN COMMAND PALETTE</button>
+        </section>
+
+        <!-- Status Dot -->
+        <section class="showcase-section">
+            <h2>STATUS DOT</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Pulsing indicators for live/offline/pending states
+            </p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-xl); align-items: center;">
+                <span class="status-row">
+                    <span class="status-dot live pulse"></span>
+                    LIVE
+                </span>
+                <span class="status-row">
+                    <span class="status-dot live"></span>
+                    CONNECTED
+                </span>
+                <span class="status-row">
+                    <span class="status-dot warning"></span>
+                    DEGRADED
+                </span>
+                <span class="status-row">
+                    <span class="status-dot error"></span>
+                    OFFLINE
+                </span>
+                <span class="status-row">
+                    <span class="status-dot info"></span>
+                    IDLE
+                </span>
+            </div>
+        </section>
+
+        <!-- Alerts / Banners -->
+        <section class="showcase-section">
+            <h2>ALERTS / BANNERS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Full-width inline messages for feedback and notifications
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-md); max-width: 640px;">
+                <div class="alert success">
+                    <span class="alert-icon">✓</span>
+                    <div class="alert-content">
+                        <div class="alert-title">ALERT SUCCESS</div>
+                        <div class="alert-body">Operation completed. All checks passed.</div>
+                    </div>
+                    <button class="alert-dismiss" aria-label="Dismiss">×</button>
+                </div>
+
+                <div class="alert warning">
+                    <span class="alert-icon">⚠</span>
+                    <div class="alert-content">
+                        <div class="alert-title">ALERT WARNING</div>
+                        <div class="alert-body">Resource at 89% capacity. Consider taking action.</div>
+                    </div>
+                    <button class="alert-dismiss" aria-label="Dismiss">×</button>
+                </div>
+
+                <div class="alert error">
+                    <span class="alert-icon">✕</span>
+                    <div class="alert-content">
+                        <div class="alert-title">ALERT ERROR</div>
+                        <div class="alert-body">Process exited with errors. Check logs for details.</div>
+                    </div>
+                    <button class="alert-dismiss" aria-label="Dismiss">×</button>
+                </div>
+
+                <div class="alert info">
+                    <span class="alert-icon">i</span>
+                    <div class="alert-content">
+                        <div class="alert-title">ALERT INFO</div>
+                        <div class="alert-body">Scheduled task at 02:00 UTC. Expect a brief interruption.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key-Value List -->
+        <section class="showcase-section">
+            <h2>KEY-VALUE LIST</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Metadata and configuration display
+            </p>
+
+            <div style="max-width: 480px;">
+                <div class="kv-list">
+                    <div class="kv-item">
+                        <span class="kv-key">ID</span>
+                        <span class="kv-value"><code>rec-0a4f2c8e1b9d7f3a6</code></span>
+                    </div>
+                    <div class="kv-item">
+                        <span class="kv-key">TYPE</span>
+                        <span class="kv-value">standard</span>
+                    </div>
+                    <div class="kv-item">
+                        <span class="kv-key">VERSION</span>
+                        <span class="kv-value"><code>v2.4.1-stable</code></span>
+                    </div>
+                    <div class="kv-item">
+                        <span class="kv-key">STATUS</span>
+                        <span class="kv-value" style="color: var(--status-success);">ACTIVE</span>
+                    </div>
+                    <div class="kv-item">
+                        <span class="kv-key">CREATED</span>
+                        <span class="kv-value">2024-01-14 09:32:07 UTC</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline / Activity Feed -->
+        <section class="showcase-section">
+            <h2>TIMELINE</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Activity feed and event history
+            </p>
+
+            <div class="timeline" style="max-width: 480px;">
+                <div class="timeline-item success">
+                    <div class="timeline-time">2024-01-15 10:24:15</div>
+                    <div class="timeline-title">ITEM — SUCCESS STATE</div>
+                    <div class="timeline-body">Operation completed. All checks passed.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">2024-01-15 10:22:01</div>
+                    <div class="timeline-title">ITEM — DEFAULT STATE</div>
+                    <div class="timeline-body">128 checks passed. 0 skipped. Output: <code>artifact-2.4.1.tar.gz</code></div>
+                </div>
+                <div class="timeline-item warning">
+                    <div class="timeline-time">2024-01-15 10:18:44</div>
+                    <div class="timeline-title">ITEM — WARNING STATE</div>
+                    <div class="timeline-body">3 warnings in <code>module.ts</code> — unused references.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">2024-01-15 10:17:02</div>
+                    <div class="timeline-title">ITEM — NO BODY</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tree View -->
+        <section class="showcase-section">
+            <h2>TREE VIEW</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Hierarchical navigation using native &lt;details&gt; — no JavaScript required
+            </p>
+
+            <div class="tree" style="max-width: 280px; background: var(--bg-surface); border: 1px solid var(--border-subtle); padding: var(--space-sm) 0;">
+                <div class="tree-item">
+                    <details open>
+                        <summary class="tree-label">src/</summary>
+                        <div class="tree">
+                            <div class="tree-item">
+                                <details open>
+                                    <summary class="tree-label">components/</summary>
+                                    <div class="tree">
+                                        <div class="tree-leaf active">alpha.tsx</div>
+                                        <div class="tree-leaf">beta.tsx</div>
+                                        <div class="tree-leaf">gamma.tsx</div>
+                                    </div>
+                                </details>
+                            </div>
+                            <div class="tree-item">
+                                <details>
+                                    <summary class="tree-label">utils/</summary>
+                                    <div class="tree">
+                                        <div class="tree-leaf">format.ts</div>
+                                        <div class="tree-leaf">helpers.ts</div>
+                                    </div>
+                                </details>
+                            </div>
+                            <div class="tree-leaf">index.ts</div>
+                            <div class="tree-leaf">app.ts</div>
+                        </div>
+                    </details>
+                </div>
+                <div class="tree-item">
+                    <details>
+                        <summary class="tree-label">tests/</summary>
+                        <div class="tree">
+                            <div class="tree-leaf">unit.test.ts</div>
+                            <div class="tree-leaf">integration.test.ts</div>
+                        </div>
+                    </details>
+                </div>
+                <div class="tree-leaf" style="padding-left: calc(var(--space-sm) + 0.8em + var(--space-sm));">package.json</div>
+            </div>
+        </section>
+
+        <!-- Stat Row -->
+        <section class="showcase-section">
+            <h2>STAT ROW</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Single row of key metrics at a glance
+            </p>
+
+            <div class="stat-row">
+                <div class="stat-cell">
+                    <div class="stat-label">REQUESTS / SEC</div>
+                    <div class="stat-value">1,847</div>
+                    <div class="stat-delta up">▲ 12% vs yesterday</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-label">P99 LATENCY</div>
+                    <div class="stat-value">42ms</div>
+                    <div class="stat-delta down">▼ 8ms vs yesterday</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-label">ERROR RATE</div>
+                    <div class="stat-value">0.3%</div>
+                    <div class="stat-delta">— stable</div>
+                </div>
+                <div class="stat-cell">
+                    <div class="stat-label">UPTIME</div>
+                    <div class="stat-value">99.98%</div>
+                    <div class="stat-delta up">▲ 30 days</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Input -->
+        <section class="showcase-section">
+            <h2>SEARCH INPUT</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Styled search with prefix indicator
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-md); max-width: 400px;">
+                <div class="search-field">
+                    <span class="search-prefix">⌕</span>
+                    <input type="search" class="search-input" placeholder="Search records...">
+                </div>
+
+                <div class="search-field">
+                    <span class="search-prefix">/</span>
+                    <input type="search" class="search-input" placeholder="Filter by name or tag...">
+                    <span class="search-suffix">ESC</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tags / Chips -->
+        <section class="showcase-section">
+            <h2>TAGS / CHIPS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Read-only labels and categorization chips
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                <div class="tag-list">
+                    <span class="tag">tag-default</span>
+                    <span class="tag">tag-default</span>
+                    <span class="tag">tag-default</span>
+                    <span class="tag">tag-default</span>
+                    <span class="tag">tag-default</span>
+                </div>
+
+                <div class="tag-list">
+                    <span class="tag accent">tag-accent</span>
+                    <span class="tag success">tag-success</span>
+                    <span class="tag warning">tag-warning</span>
+                    <span class="tag error">tag-error</span>
+                </div>
+
+                <div class="tag-list">
+                    <span class="tag">removable <button class="tag-remove" aria-label="Remove">×</button></span>
+                    <span class="tag">removable <button class="tag-remove" aria-label="Remove">×</button></span>
+                    <span class="tag accent">removable-accent <button class="tag-remove" aria-label="Remove">×</button></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dividers -->
+        <section class="showcase-section">
+            <h2>DIVIDERS</h2>
+            <p style="color: var(--text-muted); margin-bottom: var(--space-lg);">
+                Horizontal, vertical, and labeled separators
+            </p>
+
+            <div style="max-width: 480px; display: flex; flex-direction: column; gap: var(--space-xl);">
+                <div>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: var(--space-md);">DEFAULT</p>
+                    <hr class="divider">
+                </div>
+
+                <div>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: var(--space-md);">STRONG</p>
+                    <hr class="divider strong">
+                </div>
+
+                <div>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: var(--space-md);">LABELED</p>
+                    <div class="divider-label">SECTION BREAK</div>
+                </div>
+
+                <div>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: var(--space-md);">VERTICAL (inline)</p>
+                    <div style="display: flex; align-items: center; gap: var(--space-md); height: 32px;">
+                        <span style="font-family: var(--font-mono); font-size: 0.85rem;">ITEM-A</span>
+                        <div class="divider-v"></div>
+                        <span style="font-family: var(--font-mono); font-size: 0.85rem;">ITEM-B</span>
+                        <div class="divider-v"></div>
+                        <span style="font-family: var(--font-mono); font-size: 0.85rem;">ITEM-C</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    </div>
+
+        <!-- Toast Container -->
+        <div id="toastContainer" class="toast-container" role="status" aria-live="polite" aria-atomic="false"></div>
+
+        <!-- Floating Actions (for demo) -->
+        <div style="position: fixed; bottom: var(--space-xl); right: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-sm);">
+            <button class="action-btn small" onclick="showToast('Operation successful', 'success')">
+                TOAST SUCCESS
+            </button>
+            <button class="action-btn small secondary" onclick="showToast('Warning message', 'warning')">
+                TOAST WARNING
+            </button>
+            <button class="action-btn small danger" onclick="showToast('Error occurred', 'error')">
+                TOAST ERROR
+            </button>
+        </div>
+
+    <!-- Example Modal -->
+    <div id="exampleModal" class="modal" hidden>
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="exampleModalTitle">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalTitle">EXAMPLE MODAL</h3>
+                <button class="modal-close" onclick="closeModal()" aria-label="Close dialog">×</button>
+            </div>
+            <div class="modal-body">
+                <p>This is an example modal dialog demonstrating the Terminal Brutalism modal component.</p>
+
+                <div class="form-field">
+                    <label class="form-label" for="modalInput">INPUT FIELD</label>
+                    <input type="text" id="modalInput" class="form-input" placeholder="Type something...">
+                </div>
+
+                <p style="color: var(--text-muted); margin-top: var(--space-lg);">
+                    Modals have a dark backdrop with blur effect and are centered in the viewport.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="action-btn secondary" onclick="closeModal()">CANCEL</button>
+                <button class="action-btn" onclick="closeModal()">CONFIRM</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Command Palette -->
+    <div id="commandPalette" class="command-palette" hidden>
+        <div class="command-palette-backdrop" onclick="closeCommandPalette()"></div>
+        <div class="command-palette-modal" role="dialog" aria-modal="true" aria-label="Command palette">
+            <input
+                type="text"
+                id="commandInput"
+                class="command-input"
+                placeholder="TYPE A COMMAND..."
+                oninput="filterCommands(this.value)"
+                autocomplete="off"
+                spellcheck="false"
+            >
+            <div class="command-results" id="commandResults" role="listbox">
+                <div class="command-result-item" role="option" tabindex="0" onclick="closeCommandPalette()">
+                    <div class="data-title">CREATE RECORD</div>
+                    <div class="text-muted">Add a new record</div>
+                </div>
+                <div class="command-result-item" role="option" tabindex="0" onclick="closeCommandPalette()">
+                    <div class="data-title">DUPLICATE RECORD</div>
+                    <div class="text-muted">Copy an existing record</div>
+                </div>
+                <div class="command-result-item" role="option" tabindex="0" onclick="closeCommandPalette()">
+                    <div class="data-title">OPEN TERMINAL</div>
+                    <div class="text-muted">Launch integrated terminal</div>
+                </div>
+                <div class="command-result-item" role="option" tabindex="0" onclick="closeCommandPalette()">
+                    <div class="data-title">VIEW LOGS</div>
+                    <div class="text-muted">Show recent system logs</div>
+                </div>
+                <div class="command-result-item" role="option" tabindex="0" onclick="closeCommandPalette()">
+                    <div class="data-title">RUN TASK</div>
+                    <div class="text-muted">Execute a background task</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Modal Functions
+        let modalTrigger = null;
+
+        function showModal() {
+            const modal = document.getElementById('exampleModal');
+            modalTrigger = document.activeElement;
+            modal.removeAttribute('hidden');
+
+            // Move focus to first focusable element
+            const firstFocusable = modal.querySelector('button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (firstFocusable) firstFocusable.focus();
+        }
+
+        function closeModal() {
+            document.getElementById('exampleModal').setAttribute('hidden', '');
+            // Return focus to the element that opened the modal
+            if (modalTrigger) modalTrigger.focus();
+        }
+
+        // Close modal on Escape key; trap focus inside open modal
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('exampleModal');
+            const isOpen = !modal.hasAttribute('hidden');
+
+            if (e.key === 'Escape' && isOpen) {
+                closeModal();
+                return;
+            }
+
+            if (e.key === 'Tab' && isOpen) {
+                const focusable = Array.from(modal.querySelectorAll(
+                    'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                ));
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+
+        // Toast Notifications
+        function showToast(message, type = 'info', duration = 3000) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            toast.style.animation = 'slideIn 0.25s ease-out';
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transition = 'opacity 0.25s';
+                setTimeout(() => toast.remove(), 250);
+            }, duration);
+        }
+
+        // Copy Code Function
+        function copyCode(button) {
+            const code = button.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = 'COPIED!';
+                setTimeout(() => button.textContent = 'COPY', 2000);
+            }).catch(() => {
+                button.textContent = 'FAILED';
+                setTimeout(() => button.textContent = 'COPY', 2000);
+            });
+        }
+
+        // Add ripple effect to buttons (optional enhancement)
+        document.addEventListener('click', (e) => {
+            const button = e.target.closest('.action-btn, .icon-btn');
+            if (!button) return;
+
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple';
+
+            const rect = button.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+
+            button.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // Slider — sync fill gradient and value display
+        function syncSlider(input) {
+            const min = Number(input.min) || 0;
+            const max = Number(input.max) || 100;
+            const val = Number(input.value);
+            const pct = ((val - min) / (max - min)) * 100;
+            input.style.setProperty('--slider-fill', pct + '%');
+            const valueEl = input.closest('.slider-row').querySelector('.slider-value');
+            if (valueEl) valueEl.textContent = val;
+        }
+
+        // Initialise all sliders on load
+        document.querySelectorAll('.slider').forEach(syncSlider);
+
+        // Command Palette
+        let commandTrigger = null;
+
+        function showCommandPalette() {
+            commandTrigger = document.activeElement;
+            const palette = document.getElementById('commandPalette');
+            palette.removeAttribute('hidden');
+            const input = document.getElementById('commandInput');
+            input.value = '';
+            filterCommands('');
+            input.focus();
+        }
+
+        function closeCommandPalette() {
+            document.getElementById('commandPalette').setAttribute('hidden', '');
+            if (commandTrigger) commandTrigger.focus();
+        }
+
+        function filterCommands(query) {
+            const items = document.querySelectorAll('.command-result-item');
+            const q = query.toLowerCase();
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(q) ? '' : 'none';
+            });
+        }
+
+        // Cmd+K / Ctrl+K to open command palette
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                const palette = document.getElementById('commandPalette');
+                if (palette.hasAttribute('hidden')) {
+                    showCommandPalette();
+                } else {
+                    closeCommandPalette();
+                }
+            }
+
+            // Escape closes command palette
+            const palette = document.getElementById('commandPalette');
+            if (e.key === 'Escape' && !palette.hasAttribute('hidden')) {
+                closeCommandPalette();
+            }
+        });
+
+        // Show welcome toast on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                showToast('Welcome to Stdout.css', 'success', 4000);
+            }, 500);
+        });
+    </script>
+</body>
+</html>

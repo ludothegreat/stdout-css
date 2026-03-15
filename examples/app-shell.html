@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Shell — Stdout.css</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="../stdout.css">
+    <style>
+        /* Reset body for full-bleed shell */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Demo: highlight the selected row in the table */
+        .data-table tbody tr {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<a href="#main" class="skip-nav">Skip to content</a>
+
+<div class="app-shell">
+
+    <!-- ── TOP BAR ─────────────────────────────────────────── -->
+    <header class="app-topbar">
+        <span class="app-topbar-brand">DEVOPS</span>
+
+        <div class="divider-v" style="height: 20px;"></div>
+
+        <nav class="app-topnav" aria-label="Primary navigation">
+            <a href="app-shell.html" class="app-topnav-link" aria-current="page">DEPLOYMENTS</a>
+            <a href="#" class="app-topnav-link">PIPELINES</a>
+            <a href="#" class="app-topnav-link">LOGS</a>
+        </nav>
+
+        <div class="app-topbar-spacer"></div>
+
+        <div class="search-field" style="width: 220px;">
+            <span class="search-prefix">⌕</span>
+            <input type="search" class="search-input" placeholder="Search..." style="height: 30px; font-size: 0.8rem;">
+        </div>
+
+        <div class="divider-v" style="height: 20px;"></div>
+
+        <span class="status-row">
+            <span class="status-dot live pulse"></span>
+            LIVE
+        </span>
+
+        <div class="divider-v" style="height: 20px;"></div>
+
+        <a href="index.html" class="action-btn small secondary" style="text-decoration: none;">COMPONENT SHOWCASE</a>
+        <button class="action-btn small secondary">ludo</button>
+    </header>
+
+    <!-- ── SIDEBAR ─────────────────────────────────────────── -->
+    <aside class="app-sidebar">
+        <nav class="nav-sidebar" style="padding: var(--space-md) 0;">
+            <div class="nav-group">
+                <div class="nav-group-label">ENVIRONMENTS</div>
+                <a href="#" class="nav-item" aria-current="page">PRODUCTION</a>
+                <a href="#" class="nav-item">STAGING</a>
+                <a href="#" class="nav-item">PREVIEW</a>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-label">SERVICES</div>
+                <a href="#" class="nav-item">API <span class="nav-item-count">3</span></a>
+                <a href="#" class="nav-item">WORKERS <span class="nav-item-count">8</span></a>
+                <a href="#" class="nav-item nav-item-sub">QUEUE PROCESSOR</a>
+                <a href="#" class="nav-item nav-item-sub">SCHEDULER</a>
+                <a href="#" class="nav-item">DATABASES</a>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-label">TOOLS</div>
+                <a href="#" class="nav-item">SECRETS</a>
+                <a href="#" class="nav-item">AUDIT LOG</a>
+                <a href="#" class="nav-item">SETTINGS</a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- ── MAIN CONTENT ───────────────────────────────────── -->
+    <main class="app-content" id="main" tabindex="-1">
+
+        <!-- Page header -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-xl);">
+            <div>
+                <nav aria-label="Breadcrumb" style="margin-bottom: var(--space-sm);">
+                    <div class="breadcrumbs">
+                        <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">DEVOPS</a></div>
+                        <div class="breadcrumb-item"><a href="#" class="breadcrumb-link">PRODUCTION</a></div>
+                        <div class="breadcrumb-item" aria-current="page">DEPLOYMENTS</div>
+                    </div>
+                </nav>
+                <h1 style="margin: 0;">DEPLOYMENTS</h1>
+            </div>
+            <button class="action-btn" onclick="selectRow(null)">NEW DEPLOYMENT</button>
+        </div>
+
+        <!-- Alert -->
+        <div class="alert warning" style="margin-bottom: var(--space-xl);">
+            <span class="alert-icon">⚠</span>
+            <div class="alert-content">
+                <div class="alert-title">WORKER #3 DEGRADED</div>
+                <div class="alert-body">Memory at 89%. New deployments may be slower than usual.</div>
+            </div>
+            <button class="alert-dismiss" aria-label="Dismiss" onclick="this.closest('.alert').remove()">×</button>
+        </div>
+
+        <!-- Stat row -->
+        <div class="stat-row" style="margin-bottom: var(--space-xl);">
+            <div class="stat-cell">
+                <div class="stat-label">TOTAL</div>
+                <div class="stat-value">248</div>
+                <div class="stat-delta">deployments</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-label">SUCCESS RATE</div>
+                <div class="stat-value">97.2%</div>
+                <div class="stat-delta up">▲ 1.1% this week</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-label">AVG DURATION</div>
+                <div class="stat-value">2m 14s</div>
+                <div class="stat-delta down">▼ 18s vs last week</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-label">ACTIVE</div>
+                <div class="stat-value">2</div>
+                <div class="stat-delta">in progress</div>
+            </div>
+        </div>
+
+        <!-- Filter row -->
+        <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+            <div class="search-field" style="flex: 1; max-width: 320px;">
+                <span class="search-prefix">⌕</span>
+                <input type="search" class="search-input" placeholder="Filter deployments...">
+            </div>
+            <div class="tag-list">
+                <span class="tag accent">production <button class="tag-remove" aria-label="Remove filter">×</button></span>
+            </div>
+            <div style="flex: 1;"></div>
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">12 RESULTS</span>
+        </div>
+
+        <!-- Data table -->
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>VERSION</th>
+                    <th>STATUS</th>
+                    <th>ENVIRONMENT</th>
+                    <th>TRIGGERED BY</th>
+                    <th>DURATION</th>
+                    <th>DEPLOYED AT</th>
+                    <th style="width: var(--table-actions-width);">ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr onclick="selectRow(this)" id="row-1">
+                    <td><code>v2.4.1</code></td>
+                    <td><span class="badge success">SUCCESS</span></td>
+                    <td>production</td>
+                    <td>ludo</td>
+                    <td>1m 58s</td>
+                    <td>2024-01-15 10:24</td>
+                    <td class="row-actions">
+                        <button class="action-btn small secondary">LOGS</button>
+                        <button class="action-btn small danger">ROLLBACK</button>
+                    </td>
+                </tr>
+                <tr onclick="selectRow(this)" id="row-2">
+                    <td><code>v2.4.0</code></td>
+                    <td><span class="badge success">SUCCESS</span></td>
+                    <td>production</td>
+                    <td>ci-bot</td>
+                    <td>2m 11s</td>
+                    <td>2024-01-14 16:05</td>
+                    <td class="row-actions">
+                        <button class="action-btn small secondary">LOGS</button>
+                        <button class="action-btn small danger">ROLLBACK</button>
+                    </td>
+                </tr>
+                <tr onclick="selectRow(this)" id="row-3">
+                    <td><code>v2.3.9</code></td>
+                    <td><span class="badge error">FAILED</span></td>
+                    <td>production</td>
+                    <td>ludo</td>
+                    <td>0m 44s</td>
+                    <td>2024-01-14 11:32</td>
+                    <td class="row-actions">
+                        <button class="action-btn small secondary">LOGS</button>
+                        <button class="action-btn small">RETRY</button>
+                    </td>
+                </tr>
+                <tr onclick="selectRow(this)" id="row-4">
+                    <td><code>v2.3.8</code></td>
+                    <td><span class="badge success">SUCCESS</span></td>
+                    <td>production</td>
+                    <td>ci-bot</td>
+                    <td>2m 03s</td>
+                    <td>2024-01-13 09:17</td>
+                    <td class="row-actions">
+                        <button class="action-btn small secondary">LOGS</button>
+                        <button class="action-btn small danger">ROLLBACK</button>
+                    </td>
+                </tr>
+                <tr onclick="selectRow(this)" id="row-5">
+                    <td><code>v2.3.7</code></td>
+                    <td><span class="badge warning">IN PROGRESS</span></td>
+                    <td>staging</td>
+                    <td>ludo</td>
+                    <td>—</td>
+                    <td>2024-01-15 10:41</td>
+                    <td class="row-actions">
+                        <button class="action-btn small secondary">LOGS</button>
+                        <button class="action-btn small danger">CANCEL</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <div style="margin-top: var(--space-lg);">
+            <nav aria-label="Pagination">
+                <div class="pagination">
+                    <a class="page-item" aria-disabled="true">&#8592; PREV</a>
+                    <a class="page-item" aria-current="page">1</a>
+                    <a class="page-item" href="#">2</a>
+                    <a class="page-item" href="#">3</a>
+                    <a class="page-item" href="#">NEXT &#8594;</a>
+                </div>
+            </nav>
+        </div>
+
+    </main>
+
+    <!-- ── DETAILS PANEL ──────────────────────────────────── -->
+    <aside class="app-details" id="detailsPanel" style="display: none;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-lg);">
+            <h3 style="margin: 0; font-size: 0.9rem;">DEPLOYMENT DETAILS</h3>
+            <button class="icon-btn" onclick="selectRow(null)" aria-label="Close details">×</button>
+        </div>
+
+        <div id="detailsContent" aria-live="polite" aria-atomic="true">
+            <!-- Populated by JS -->
+        </div>
+    </aside>
+
+</div><!-- /.app-shell -->
+
+<script>
+    const deployments = {
+        'row-1': {
+            version: 'v2.4.1',
+            status: 'SUCCESS',
+            statusClass: 'success',
+            env: 'production',
+            triggeredBy: 'ludo',
+            branch: 'main',
+            commit: 'a3f8c2d',
+            duration: '1m 58s',
+            deployedAt: '2024-01-15 10:24:15 UTC',
+            instances: 3,
+            region: 'us-east-1',
+            tags: ['production', 'stable'],
+            timeline: [
+                { time: '10:24:15', title: 'DEPLOY COMPLETE', type: 'success', body: 'All 3 instances healthy.' },
+                { time: '10:23:01', title: 'HEALTH CHECKS PASSED', type: 'success', body: 'All endpoints responding.' },
+                { time: '10:22:17', title: 'INSTANCES UPDATED', type: '', body: 'Rolling update: 3/3 done.' },
+                { time: '10:22:17', title: 'PIPELINE STARTED', type: '', body: 'Triggered by push to main.' },
+            ]
+        },
+        'row-2': {
+            version: 'v2.4.0',
+            status: 'SUCCESS',
+            statusClass: 'success',
+            env: 'production',
+            triggeredBy: 'ci-bot',
+            branch: 'main',
+            commit: '9e1b7f4',
+            duration: '2m 11s',
+            deployedAt: '2024-01-14 16:05:33 UTC',
+            instances: 3,
+            region: 'us-east-1',
+            tags: ['production'],
+            timeline: [
+                { time: '16:05:33', title: 'DEPLOY COMPLETE', type: 'success', body: 'All 3 instances healthy.' },
+                { time: '16:04:12', title: 'HEALTH CHECKS PASSED', type: 'success', body: '' },
+                { time: '16:03:22', title: 'PIPELINE STARTED', type: '', body: 'Triggered by ci-bot.' },
+            ]
+        },
+        'row-3': {
+            version: 'v2.3.9',
+            status: 'FAILED',
+            statusClass: 'error',
+            env: 'production',
+            triggeredBy: 'ludo',
+            branch: 'feat/auth',
+            commit: 'c7d4e9a',
+            duration: '0m 44s',
+            deployedAt: '2024-01-14 11:32:07 UTC',
+            instances: 0,
+            region: 'us-east-1',
+            tags: ['production'],
+            timeline: [
+                { time: '11:32:07', title: 'BUILD FAILED', type: 'error', body: 'auth.test.ts: 3 tests failed.' },
+                { time: '11:31:23', title: 'PIPELINE STARTED', type: '', body: 'Triggered by ludo.' },
+            ]
+        },
+        'row-4': {
+            version: 'v2.3.8',
+            status: 'SUCCESS',
+            statusClass: 'success',
+            env: 'production',
+            triggeredBy: 'ci-bot',
+            branch: 'main',
+            commit: '5a2f8b1',
+            duration: '2m 03s',
+            deployedAt: '2024-01-13 09:17:44 UTC',
+            instances: 3,
+            region: 'us-east-1',
+            tags: ['production'],
+            timeline: [
+                { time: '09:17:44', title: 'DEPLOY COMPLETE', type: 'success', body: 'All 3 instances healthy.' },
+                { time: '09:16:01', title: 'PIPELINE STARTED', type: '', body: 'Triggered by ci-bot.' },
+            ]
+        },
+        'row-5': {
+            version: 'v2.3.7',
+            status: 'IN PROGRESS',
+            statusClass: 'warning',
+            env: 'staging',
+            triggeredBy: 'ludo',
+            branch: 'feat/cache',
+            commit: 'e9c1d3f',
+            duration: '—',
+            deployedAt: '2024-01-15 10:41:02 UTC',
+            instances: 1,
+            region: 'us-east-1',
+            tags: ['staging'],
+            timeline: [
+                { time: '10:41:02', title: 'PIPELINE STARTED', type: '', body: 'Triggered by ludo.' },
+            ]
+        },
+    };
+
+    let selectedRow = null;
+
+    function selectRow(row) {
+        // Deselect previous
+        if (selectedRow) {
+            selectedRow.removeAttribute('aria-selected');
+        }
+
+        const panel = document.getElementById('detailsPanel');
+
+        if (!row) {
+            panel.style.display = 'none';
+            selectedRow = null;
+            return;
+        }
+
+        selectedRow = row;
+        row.setAttribute('aria-selected', 'true');
+
+        const data = deployments[row.id];
+        if (!data) return;
+
+        const timelineHTML = data.timeline.map(e => `
+            <div class="timeline-item ${e.type}">
+                <div class="timeline-time">${e.time}</div>
+                <div class="timeline-title">${e.title}</div>
+                ${e.body ? `<div class="timeline-body">${e.body}</div>` : ''}
+            </div>
+        `).join('');
+
+        const tagsHTML = data.tags.map(t => `<span class="tag">${t}</span>`).join('');
+
+        document.getElementById('detailsContent').innerHTML = `
+            <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-lg);">
+                <span class="badge ${data.statusClass}">${data.status}</span>
+                <code style="font-size: 1rem; color: var(--text-primary);">${data.version}</code>
+            </div>
+
+            <div class="kv-list" style="margin-bottom: var(--space-lg);">
+                <div class="kv-item">
+                    <span class="kv-key">BRANCH</span>
+                    <span class="kv-value"><code>${data.branch}</code></span>
+                </div>
+                <div class="kv-item">
+                    <span class="kv-key">COMMIT</span>
+                    <span class="kv-value"><code>${data.commit}</code></span>
+                </div>
+                <div class="kv-item">
+                    <span class="kv-key">ENV</span>
+                    <span class="kv-value">${data.env}</span>
+                </div>
+                <div class="kv-item">
+                    <span class="kv-key">REGION</span>
+                    <span class="kv-value">${data.region}</span>
+                </div>
+                <div class="kv-item">
+                    <span class="kv-key">BY</span>
+                    <span class="kv-value">${data.triggeredBy}</span>
+                </div>
+                <div class="kv-item">
+                    <span class="kv-key">DURATION</span>
+                    <span class="kv-value">${data.duration}</span>
+                </div>
+                <div class="kv-item">
+                    <span class="kv-key">DEPLOYED</span>
+                    <span class="kv-value">${data.deployedAt}</span>
+                </div>
+            </div>
+
+            <div class="tag-list" style="margin-bottom: var(--space-xl);">
+                ${tagsHTML}
+            </div>
+
+            <div class="divider-label" style="margin-bottom: var(--space-lg);">ACTIVITY</div>
+
+            <div class="timeline">
+                ${timelineHTML}
+            </div>
+
+            <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-xl);">
+                <button class="action-btn small secondary" style="flex: 1;">LOGS</button>
+                ${data.statusClass === 'success' ? '<button class="action-btn small danger" style="flex: 1;">ROLLBACK</button>' : ''}
+                ${data.statusClass === 'error' ? '<button class="action-btn small" style="flex: 1;">RETRY</button>' : ''}
+            </div>
+        `;
+
+        panel.style.display = '';
+    }
+</script>
+
+</body>
+</html>
