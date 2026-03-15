@@ -165,7 +165,7 @@ Shows a sliding progress bar animation while preserving button dimensions. Text 
 
 ### Checkbox
 
-Checkboxes are fully styled — no extra markup needed beyond the `.checkbox-control` wrapper.
+Checkboxes are fully styled, no extra markup needed beyond the `.checkbox-control` wrapper.
 
 ```html
 <label class="checkbox-control">
@@ -209,7 +209,7 @@ Use `.radio-control` for radio groups. Same styling pattern as checkboxes.
 
 ### Toggle Switch
 
-Binary on/off control. Uses a hidden `<input type="checkbox">` with `role="switch"` for proper screen reader semantics. The `.toggle-track` and `.toggle-thumb` provide the visual toggle — no JavaScript needed.
+Binary on/off control. Uses a hidden `<input type="checkbox">` with `role="switch"` for proper screen reader semantics. The `.toggle-track` and `.toggle-thumb` provide the visual toggle, no JavaScript needed.
 
 ```html
 <!-- Off by default -->
@@ -575,7 +575,7 @@ A three-bar terminal pulse animation. The inner `<span>` is required for the mid
 
 ## Accordions
 
-Collapsible sections using native `<details>` and `<summary>`. No JavaScript required — open/close is handled entirely by the browser.
+Collapsible sections using native `<details>` and `<summary>`. No JavaScript required, open/close is handled entirely by the browser.
 
 The `[+]` / `[-]` indicator updates automatically via CSS when the `open` attribute is present.
 
@@ -621,7 +621,7 @@ Add the `open` attribute to any `<details>` to render it expanded on load:
 
 ### Notes
 
-- The `.accordion-body` can contain any HTML — paragraphs, code blocks, forms, tables
+- The `.accordion-body` can contain any HTML, paragraphs, code blocks, forms, tables
 - Multiple items can be open simultaneously (native `<details>` behaviour)
 - To enforce only one open at a time, use JavaScript to close siblings on open
 
@@ -644,10 +644,10 @@ Inline status indicator. Always paired with a label for accessibility.
 ```
 
 **Variants:**
-- `success` — Green
-- `warning` — Orange
-- `error` — Red
-- `info` — Gray
+- `success`, Green
+- `warning`, Orange
+- `error`, Red
+- `info`, Gray
 
 **Modifier:** `.live.pulse` adds a breathing pulse animation (2s infinite). Use for realtime or actively-changing states.
 
@@ -692,7 +692,7 @@ Full-width informational banners. Include `.alert-dismiss` for dismissible alert
   <span class="alert-icon">✕</span>
   <div class="alert-content">
     <strong class="alert-title">BUILD FAILED</strong>
-    <p class="alert-body">Exit code 1 — see logs for details.</p>
+    <p class="alert-body">Exit code 1, see logs for details.</p>
   </div>
 </div>
 ```
@@ -836,7 +836,7 @@ Two-column metadata display using CSS Grid. Keys auto-size to their content (up 
 
 **Notes:**
 - Uses `display: contents` on `.kv-item` so grid columns are shared across all rows
-- `.kv-value` accepts any inline content — badges, code, links, plain text
+- `.kv-value` accepts any inline content, badges, code, links, plain text
 
 ---
 
@@ -865,7 +865,7 @@ Chronological event log. Uses CSS logical properties for RTL support.
 ```
 
 **Notes:**
-- `.timeline-body` is optional — omit for terse logs
+- `.timeline-body` is optional, omit for terse logs
 - Vertical line and dot are drawn via `::before` pseudo-elements, no extra markup needed
 
 ---
@@ -900,10 +900,10 @@ Collapsible directory/file tree using nested `<details>`. Fully keyboard-navigab
 ```
 
 **Classes:**
-- `.tree` — Container (`<ul>`)
-- `.tree-item` — Each node (`<li>`)
-- `.tree-label` — Folder summary (used as `<summary>` inside `<details>`)
-- `.tree-leaf` — File node (no `<details>` wrapper)
+- `.tree`, Container (`<ul>`)
+- `.tree-item`, Each node (`<li>`)
+- `.tree-label`, Folder summary (used as `<summary>` inside `<details>`)
+- `.tree-leaf`, File node (no `<details>` wrapper)
 
 **Notes:**
 - `open` attribute on `<details>` expands on load
@@ -940,9 +940,9 @@ Horizontal strip of key metrics. Wraps to multiple rows on narrow viewports.
 ```
 
 **Delta modifiers:**
-- `.stat-delta.positive` — Green, for positive change
-- `.stat-delta.negative` — Red, for negative change
-- No modifier — Muted gray, for neutral delta
+- `.stat-delta.positive`, Green, for positive change
+- `.stat-delta.negative`, Red, for negative change
+- No modifier, Muted gray, for neutral delta
 
 **Responsive:** Cells use `flex: 1 1 120px` and wrap automatically. Vertical dividers switch to horizontal borders on narrow viewports.
 
@@ -1015,11 +1015,11 @@ Compact metadata chips. Use `.tag-list` as the container.
 ```
 
 **Variants:**
-- Default — Subtle gray border, muted text
-- `.accent` — Green border/text
-- `.success` — Green (same as accent, semantic alias)
-- `.warning` — Orange
-- `.error` — Red
+- Default, Subtle gray border, muted text
+- `.accent`, Green border/text
+- `.success`, Green (same as accent, semantic alias)
+- `.warning`, Orange
+- `.error`, Red
 
 ---
 
@@ -1053,16 +1053,16 @@ Renders as a horizontal rule with centered text. The line is drawn via `::before
 ```
 
 **Classes:**
-- `.divider` — Standard `<hr>` (1px, subtle border color)
-- `.divider.strong` — 2px, strong border color
-- `.divider-label` — Horizontal rule with centered inline label
-- `.divider-v` — Vertical `1px` rule for inline use
+- `.divider`, Standard `<hr>` (1px, subtle border color)
+- `.divider.strong`, 2px, strong border color
+- `.divider-label`, Horizontal rule with centered inline label
+- `.divider-v`, Vertical `1px` rule for inline use
 
 ---
 
 ## App Shell
 
-Full-viewport application frame using CSS Grid. Compose the panels you need — all are optional except `.app-content`.
+Full-viewport application frame using CSS Grid. Compose the panels you need, all are optional except `.app-content`.
 
 ### Full Layout (topbar + sidebar + content + details)
 
@@ -1131,15 +1131,15 @@ Full-viewport application frame using CSS Grid. Compose the panels you need — 
 | Details | (fixed) | `320px` |
 
 **Classes:**
-- `.app-shell` — CSS Grid root (`100dvh`, overflow hidden)
-- `.app-topbar` — Fixed top row, spans all columns
-- `.app-topbar-brand` — Logo/name slot (monospace, uppercase)
-- `.app-topbar-spacer` — Flex spacer, pushes subsequent items right
-- `.app-topnav` — Inline nav bar within topbar
-- `.app-topnav-link` — Nav link; use `aria-current="page"` for active state
-- `.app-sidebar` — Left sidebar with `overflow-y: auto`
-- `.app-content` — Main scrollable region (`overflow-y: auto`)
-- `.app-details` — Right details panel with `overflow-y: auto`
+- `.app-shell`, CSS Grid root (`100dvh`, overflow hidden)
+- `.app-topbar`, Fixed top row, spans all columns
+- `.app-topbar-brand`, Logo/name slot (monospace, uppercase)
+- `.app-topbar-spacer`, Flex spacer, pushes subsequent items right
+- `.app-topnav`, Inline nav bar within topbar
+- `.app-topnav-link`, Nav link; use `aria-current="page"` for active state
+- `.app-sidebar`, Left sidebar with `overflow-y: auto`
+- `.app-content`, Main scrollable region (`overflow-y: auto`)
+- `.app-details`, Right details panel with `overflow-y: auto`
 
 **Notes:**
 - Include `tabindex="-1"` on `#main` so skip-nav focus lands correctly
@@ -1269,15 +1269,15 @@ All components include:
 
 ### Built-in Animations
 
-- `slideIn` — Toast slide-in from right (250ms)
-- `bar-pulse` — Three-bar loading spinner (800ms staggered)
-- `btn-loading` — Button progress bar slide (1.2s infinite)
-- `skeleton-pulse` — Shimmer effect (1.5s)
-- `checkmark-draw` — SVG path drawing (400ms)
-- `scale-in` — Element entrance (300ms)
-- `confetti-fall` — Particle descent (2–4s)
-- `ripple-animation` — Ripple (600ms)
-- `status-pulse` — Status dot breathing (2s infinite)
+- `slideIn`, Toast slide-in from right (250ms)
+- `bar-pulse`, Three-bar loading spinner (800ms staggered)
+- `btn-loading`, Button progress bar slide (1.2s infinite)
+- `skeleton-pulse`, Shimmer effect (1.5s)
+- `checkmark-draw`, SVG path drawing (400ms)
+- `scale-in`, Element entrance (300ms)
+- `confetti-fall`, Particle descent (2–4s)
+- `ripple-animation`, Ripple (600ms)
+- `status-pulse`, Status dot breathing (2s infinite)
 
 ### Easing Curves
 

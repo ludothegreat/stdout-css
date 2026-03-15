@@ -103,7 +103,7 @@ It embraces:
 
 **Why no blues?**
 
-Blue is overused in tech interfaces. Every SaaS product, every dashboard, every developer tool defaults to blue. It's become visual noise—the design equivalent of lorem ipsum.
+Blue is overused in tech interfaces. Every SaaS product, every dashboard, every developer tool defaults to blue. It's become visual noise, the design equivalent of lorem ipsum.
 
 Stdout.css uses:
 - **Greens** (#4a9d5f, #5fb574) for primary actions, success states
@@ -119,7 +119,7 @@ This palette is distinctive, memorable, and intentional.
 
 **No pure grays.**
 
-Every neutral color in Stdout.css has a subtle green tint (OKLCH hue: 150). This creates visual cohesion—the grays harmonize with the greens rather than fighting them.
+Every neutral color in Stdout.css has a subtle green tint (OKLCH hue: 150). This creates visual cohesion, the grays harmonize with the greens rather than fighting them.
 
 Traditional CSS:
 ```css
@@ -171,7 +171,7 @@ All animations use **exponential easing curves**:
 --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 ```
 
-These curves mimic natural deceleration—things slow down smoothly, like friction in the real world.
+These curves mimic natural deceleration, things slow down smoothly, like friction in the real world.
 
 **We don't use**:
 - Bounce (`ease-in-out-back`)
@@ -194,7 +194,7 @@ Stdout.css rejects this. Information density is a feature:
 - Borders over shadows (crisp, not soft)
 - Hard edges over rounded corners
 
-This doesn't mean cramming content recklessly. It means using space intentionally—not defaulting to maximum padding.
+This doesn't mean cramming content recklessly. It means using space intentionally, not defaulting to maximum padding.
 
 ---
 
@@ -277,7 +277,7 @@ Before using stdout.css, ask:
 - [ ] Are borders hard-edged (not rounded)?
 - [ ] Is functionality prioritized over decoration?
 
-If you answered "no" to more than two questions, stdout.css may not be the right fit—and that's okay.
+If you answered "no" to more than two questions, stdout.css may not be the right fit, and that's okay.
 
 ---
 

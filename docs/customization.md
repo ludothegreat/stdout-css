@@ -245,7 +245,7 @@ Increase contrast for better visibility:
 
 ## Light Mode
 
-Stdout.css ships with built-in `prefers-color-scheme: light` support. Users who have set their OS to light mode will automatically see a light variant — no JavaScript or extra configuration required.
+Stdout.css ships with built-in `prefers-color-scheme: light` support. Users who have set their OS to light mode will automatically see a light variant, no JavaScript or extra configuration required.
 
 The light mode overrides the semantic tokens (backgrounds, borders, text) while keeping the green/orange brand palette intact. `--green-dark` is used for accent text and focus rings since the standard greens are too light for readable contrast on light backgrounds.
 
