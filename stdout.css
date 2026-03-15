@@ -1,6 +1,7 @@
 /* ============================================
-   STDOUT.CSS - TERMINAL BRUTALISM
-   A CSS-only framework for terminal-inspired developer tools
+   STDOUT.CSS
+   Form follows function. Brutal honesty.
+   A CSS-only framework for information-dense developer tools
    ============================================ */
 
 /* ============================================
@@ -1742,10 +1743,24 @@ input[type="radio"]:disabled:hover {
     border-bottom: 1px solid var(--green-primary);
 }
 
+.code-box pre {
+    flex: 1;
+    margin: 0;
+    overflow-x: auto;
+    white-space: pre;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.code-box pre::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
 .code-box code {
     flex: 1;
     font-size: 0.85rem;
     color: var(--text-secondary);
+    white-space: pre;
 }
 
 .command-note {

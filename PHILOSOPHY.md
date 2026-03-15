@@ -1,12 +1,12 @@
-# Terminal Brutalism
+# Stdout.css Philosophy
 
-**A design philosophy for developer tools.**
+**Form follows function. Brutal honesty.**
 
 ---
 
-## What is Terminal Brutalism?
+## A Brutalist Approach to Developer Tools
 
-Terminal Brutalism combines the honest, functional aesthetic of **terminal emulators** with the raw, structural principles of **brutalist architecture**.
+Stdout.css combines the honest, functional aesthetic of **terminal emulators** with the raw, structural principles of **brutalist architecture**.
 
 It rejects:
 - Generic "modern" design trends
@@ -126,7 +126,7 @@ Traditional CSS:
 --gray-500: #808080; /* Pure gray, feels cold and disconnected */
 ```
 
-Terminal Brutalism:
+Stdout.css:
 ```css
 --gray-500: oklch(0.48 0.008 150); /* ~#4a4c4a - subtle green warmth */
 ```
@@ -178,7 +178,7 @@ These curves mimic natural deceleration—things slow down smoothly, like fricti
 - Elastic (`ease-in-out-elastic`)
 - Spring physics
 
-Why? They feel playful and whimsical. Terminal Brutalism is serious, not cute.
+Why? They feel playful and whimsical. Stdout.css is serious, not cute.
 
 ---
 
@@ -188,7 +188,7 @@ Why? They feel playful and whimsical. Terminal Brutalism is serious, not cute.
 
 Modern design trends fetishize whitespace. Cards float in oceans of padding. Content spreads out to fill space.
 
-Terminal Brutalism rejects this. Information density is a feature:
+Stdout.css rejects this. Information density is a feature:
 - Tables over cards (more data per screen)
 - Compact spacing (readable but efficient)
 - Borders over shadows (crisp, not soft)
@@ -200,7 +200,7 @@ This doesn't mean cramming content recklessly. It means using space intentionall
 
 ## Anti-Patterns
 
-### What Terminal Brutalism is NOT:
+### What stdout.css is NOT:
 
 1. **Retro for Retro's Sake**
    - We use modern CSS (OKLCH, CSS variables, grid)
@@ -245,7 +245,7 @@ This doesn't mean cramming content recklessly. It means using space intentionall
 
 ---
 
-## When to Use Terminal Brutalism
+## When to Use Stdout.css
 
 ✅ **Use Stdout.css for:**
 - Internal developer tools
@@ -266,7 +266,7 @@ This doesn't mean cramming content recklessly. It means using space intentionall
 
 ## The Brutalist Checklist
 
-Before calling your design "Terminal Brutalism," ask:
+Before using stdout.css, ask:
 
 - [ ] Does it use greens + burnt orange (not blues)?
 - [ ] Is it dark mode only?
@@ -277,13 +277,13 @@ Before calling your design "Terminal Brutalism," ask:
 - [ ] Are borders hard-edged (not rounded)?
 - [ ] Is functionality prioritized over decoration?
 
-If you answered "no" to more than two questions, it's not Terminal Brutalism—it's something else (and that's okay).
+If you answered "no" to more than two questions, stdout.css may not be the right fit—and that's okay.
 
 ---
 
 ## Closing Thoughts
 
-**Terminal Brutalism is not for everyone.**
+**Stdout.css is not for everyone.**
 
 It's opinionated. It rejects popular trends. It won't win design awards or go viral on Dribbble.
 
@@ -297,4 +297,4 @@ Just functional, precise, information-dense interfaces that respect your time an
 
 ---
 
-*Terminal Brutalism: Form follows function. Brutal honesty.*
+*Form follows function. Brutal honesty.*

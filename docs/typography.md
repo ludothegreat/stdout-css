@@ -141,7 +141,7 @@ Stdout.css uses a three-font system: **monospace for display**, **sans-serif for
 ### Page Title
 
 ```html
-<h1>TERMINAL BRUTALISM</h1>
+<h1>STDOUT.CSS</h1>
 ```
 
 **Styling:**

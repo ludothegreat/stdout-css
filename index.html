@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stdout.css — Pure CSS Framework for Developer Tools</title>
+    <meta name="description" content="A pure CSS framework for building information-dense developer tools. No JavaScript. No build tools. Form follows function. Brutal honesty.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
+    <link rel="stylesheet" href="stdout.css">
+    <style>
+        /* Page layout */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-3xl) var(--space-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-primary) 0%, var(--orange-primary) 100%);
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .terminal-display {
+            font-family: var(--font-mono);
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            color: var(--green-primary);
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .terminal-subtitle {
+            font-family: var(--font-mono);
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+            max-width: 600px;
+        }
+
+        .section {
+            padding: var(--space-3xl) var(--space-xl);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .feature-card {
+            padding: var(--space-xl);
+            background: var(--bg-surface);
+            border-left: 3px solid var(--border-subtle);
+            transition: all 200ms var(--ease-out-quad);
+        }
+
+        .feature-card:hover {
+            border-left-color: var(--green-primary);
+            background: var(--bg-elevated);
+        }
+
+        .feature-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--orange-primary);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .feature-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+
+        .example-box {
+            padding: var(--space-lg);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .install-box {
+            background: var(--bg-elevated);
+            padding: var(--space-2xl);
+            border-left: 4px solid var(--green-primary);
+            margin-top: var(--space-xl);
+        }
+
+        @media (max-width: 768px) {
+            .terminal-display {
+                font-size: 2rem;
+            }
+            .terminal-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── HERO ──────────────────────────────────────────────── -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="terminal-display">
+            STDOUT.CSS
+        </div>
+        <div class="terminal-subtitle">
+            Form follows function. Brutal honesty.
+        </div>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: var(--space-2xl); max-width: 700px;">
+            A pure CSS framework for building information-dense developer tools. Hard-edged, asymmetric, unapologetically functional.
+        </p>
+
+        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-2xl);">
+            <a href="examples/index.html" class="action-btn" style="text-decoration: none;">COMPONENT SHOWCASE →</a>
+            <a href="examples/app-shell.html" class="action-btn secondary" style="text-decoration: none;">APP SHELL DEMO</a>
+            <a href="docs/components.md" class="action-btn secondary" style="text-decoration: none;">DOCUMENTATION</a>
+        </div>
+
+        <!-- Live stats -->
+        <div class="stat-row" style="margin-bottom: var(--space-xl);">
+            <div class="stat-cell">
+                <div class="stat-label">NO JAVASCRIPT</div>
+                <div class="stat-value">0KB</div>
+                <div class="stat-delta">pure CSS</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-label">NO BUILD TOOLS</div>
+                <div class="stat-value">1 FILE</div>
+                <div class="stat-delta">just drop it in</div>
+            </div>
+            <div class="stat-cell">
+                <div class="stat-label">NO BLUES</div>
+                <div class="stat-value">∅</div>
+                <div class="stat-delta">greens & orange</div>
+            </div>
+        </div>
+
+        <!-- Live component preview -->
+        <div style="display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap;">
+            <button class="action-btn">CREATE</button>
+            <button class="action-btn secondary">SETTINGS</button>
+            <button class="action-btn danger">DELETE</button>
+            <span class="badge success">DEPLOYED</span>
+            <span class="badge warning">PENDING</span>
+            <span class="badge error">FAILED</span>
+            <span class="status-row">
+                <span class="status-dot live pulse"></span>
+                LIVE
+            </span>
+        </div>
+    </div>
+</section>
+
+<!-- ── INSTALL ───────────────────────────────────────────── -->
+<section class="section" style="background: var(--bg-base);">
+    <h2 style="margin-bottom: var(--space-lg);">INSTALLATION</h2>
+
+    <div class="install-box">
+        <div style="margin-bottom: var(--space-lg);">
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--space-sm);">
+                1. LOAD FONTS (OPTIONAL)
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"&gt;</code></pre>
+                <button class="copy-btn" aria-label="Copy to clipboard">COPY</button>
+            </div>
+        </div>
+
+        <div>
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: var(--space-sm);">
+                2. INCLUDE STYLESHEET
+            </div>
+            <div class="code-box">
+                <pre><code>&lt;link rel="stylesheet" href="stdout.css"&gt;</code></pre>
+                <button class="copy-btn" aria-label="Copy to clipboard">COPY</button>
+            </div>
+        </div>
+
+        <div style="margin-top: var(--space-xl); padding-top: var(--space-xl); border-top: 1px solid var(--border-subtle);">
+            <div style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--green-primary); font-weight: 600;">
+                ✓ NO NPM. NO BUILD TOOLS. NO JAVASCRIPT. JUST CSS.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FEATURES ──────────────────────────────────────────── -->
+<section class="section">
+    <h2 style="margin-bottom: var(--space-md);">DESIGN PRINCIPLES</h2>
+    <p style="color: var(--text-secondary); max-width: 700px;">
+        Every pixel serves a purpose. No marketing fluff, no decorative elements.
+    </p>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-label">SPEED</div>
+            <h3 class="feature-title">Instant Feedback</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6;">
+                Natural deceleration animations (ease-out-quad, ease-out-expo). No bounces, no elastic effects. Just smooth, purposeful motion.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-label">CLARITY</div>
+            <h3 class="feature-title">At A Glance</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6;">
+                Information-dense layouts with clear visual hierarchy. Status indicators, badges, and color-coded elements make state obvious.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-label">TRUST</div>
+            <h3 class="feature-title">Precise Feedback</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6;">
+                Technical precision over hand-holding. Accurate terminology, exposed details, and clear success/error states.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-label">COLOR</div>
+            <h3 class="feature-title">No Blues</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6;">
+                OKLCH perceptually uniform colors. Greens for primary actions, burnt orange for secondary. Blue is explicitly excluded.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-label">DARK MODE</div>
+            <h3 class="feature-title">Low Light First</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6;">
+                Designed for developers working in low-light environments. High contrast, reduced eye strain. Light mode supported.
+            </p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-label">TYPOGRAPHY</div>
+            <h3 class="feature-title">Mono For Data</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6;">
+                Commands, hashes, timestamps, code—all monospace. Sans-serif for prose. Clear hierarchy, brutal honesty.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ── COMPONENTS ────────────────────────────────────────── -->
+<section class="section" style="background: var(--bg-base);">
+    <h2 style="margin-bottom: var(--space-md);">COMPONENTS</h2>
+    <p style="color: var(--text-secondary); margin-bottom: var(--space-xl); max-width: 700px;">
+        Buttons, forms, tables, badges, modals, toasts, tabs, accordions, tooltips, command palettes, code boxes, loading states, and more.
+    </p>
+
+    <div class="example-grid">
+        <!-- Forms -->
+        <div class="example-box">
+            <h3 style="font-size: 0.9rem; margin-bottom: var(--space-md); font-family: var(--font-mono); color: var(--orange-primary);">FORMS</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                <input type="text" placeholder="Enter text..." style="width: 100%;">
+                <div class="search-field">
+                    <span class="search-prefix">⌕</span>
+                    <input type="search" class="search-input" placeholder="Search...">
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-label">DARK MODE</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Badges & Status -->
+        <div class="example-box">
+            <h3 style="font-size: 0.9rem; margin-bottom: var(--space-md); font-family: var(--font-mono); color: var(--orange-primary);">BADGES & STATUS</h3>
+            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+                    <span class="badge success">SUCCESS</span>
+                    <span class="badge warning">WARNING</span>
+                    <span class="badge error">ERROR</span>
+                    <span class="badge">INFO</span>
+                </div>
+                <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
+                    <span class="status-row">
+                        <span class="status-dot success"></span>
+                        HEALTHY
+                    </span>
+                    <span class="status-row">
+                        <span class="status-dot error"></span>
+                        DOWN
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Box -->
+        <div class="example-box">
+            <h3 style="font-size: 0.9rem; margin-bottom: var(--space-md); font-family: var(--font-mono); color: var(--orange-primary);">CODE BOX</h3>
+            <div class="code-box">
+                <pre><code>npm install @yourorg/pkg</code></pre>
+                <button class="copy-btn" aria-label="Copy to clipboard">COPY</button>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="example-box">
+            <h3 style="font-size: 0.9rem; margin-bottom: var(--space-md); font-family: var(--font-mono); color: var(--orange-primary);">DATA TABLE</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>STATUS</th>
+                        <th>SERVICE</th>
+                        <th>UPTIME</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge success">OK</span></td>
+                        <td>API</td>
+                        <td>99.9%</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge warning">WARN</span></td>
+                        <td>CACHE</td>
+                        <td>98.2%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tags -->
+        <div class="example-box">
+            <h3 style="font-size: 0.9rem; margin-bottom: var(--space-md); font-family: var(--font-mono); color: var(--orange-primary);">TAGS</h3>
+            <div class="tag-list">
+                <span class="tag">production</span>
+                <span class="tag accent">v2.4.1</span>
+                <span class="tag">main <button class="tag-remove" aria-label="Remove">×</button></span>
+            </div>
+        </div>
+
+        <!-- Accordion -->
+        <div class="example-box">
+            <h3 style="font-size: 0.9rem; margin-bottom: var(--space-md); font-family: var(--font-mono); color: var(--orange-primary);">ACCORDION</h3>
+            <details class="accordion">
+                <summary class="accordion-trigger">
+                    DEPLOYMENT CONFIG
+                </summary>
+                <div class="accordion-content">
+                    <p style="color: var(--text-secondary); margin: 0;">
+                        Environment variables, build settings, and deployment hooks.
+                    </p>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <div style="margin-top: var(--space-2xl); text-align: center;">
+        <a href="examples/index.html" class="action-btn" style="text-decoration: none;">VIEW ALL COMPONENTS →</a>
+    </div>
+</section>
+
+<!-- ── PHILOSOPHY ────────────────────────────────────────── -->
+<section class="section">
+    <h2 style="margin-bottom: var(--space-lg);">ANTI-PATTERNS</h2>
+
+    <div style="background: var(--bg-surface); border-left: 3px solid var(--orange-primary); padding: var(--space-xl);">
+        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; margin-bottom: var(--space-md);">
+            What stdout.css is <strong style="color: var(--text-primary);">NOT</strong>:
+        </p>
+        <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: var(--space-lg);">
+            <li>❌ Generic "modern" aesthetics</li>
+            <li>❌ Blue-themed interfaces</li>
+            <li>❌ Marketing-heavy UIs</li>
+            <li>❌ Excessive animations</li>
+            <li>❌ Rounded cards and glassmorphism</li>
+            <li>❌ A JavaScript component library</li>
+            <li>❌ For everyone (and that's okay)</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: var(--space-2xl); text-align: center;">
+        <a href="PHILOSOPHY.md" class="action-btn secondary" style="text-decoration: none;">READ THE MANIFESTO</a>
+    </div>
+</section>
+
+<!-- ── DOCS & EXAMPLES ───────────────────────────────────── -->
+<section class="section" style="background: var(--bg-base); text-align: center; padding: var(--space-3xl) var(--space-xl);">
+    <h2 style="margin-bottom: var(--space-lg);">DOCUMENTATION</h2>
+
+    <div style="display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap; margin-top: var(--space-xl);">
+        <a href="docs/components.md" style="text-decoration: none; color: var(--green-primary); font-family: var(--font-mono); font-weight: 600; font-size: 0.9rem;">
+            → COMPONENTS
+        </a>
+        <a href="docs/customization.md" style="text-decoration: none; color: var(--green-primary); font-family: var(--font-mono); font-weight: 600; font-size: 0.9rem;">
+            → CUSTOMIZATION
+        </a>
+        <a href="docs/colors.md" style="text-decoration: none; color: var(--green-primary); font-family: var(--font-mono); font-weight: 600; font-size: 0.9rem;">
+            → COLORS
+        </a>
+        <a href="docs/typography.md" style="text-decoration: none; color: var(--green-primary); font-family: var(--font-mono); font-weight: 600; font-size: 0.9rem;">
+            → TYPOGRAPHY
+        </a>
+    </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────── -->
+<footer style="padding: var(--space-2xl) var(--space-xl); background: var(--bg-base); border-top: 1px solid var(--border-subtle); text-align: center;">
+    <div style="font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; margin-bottom: var(--space-sm); text-transform: uppercase;">
+        STDOUT.CSS
+    </div>
+    <div style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem; margin-bottom: var(--space-lg);">
+        Form follows function. Brutal honesty.
+    </div>
+    <div style="color: var(--text-muted); font-size: 0.85rem;">
+        MIT License — Use freely in personal and commercial projects.
+    </div>
+</footer>
+
+<script>
+    // Copy button functionality
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const codeBox = btn.closest('.code-box');
+            const code = codeBox.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = 'COPIED';
+                btn.style.background = 'var(--green-primary)';
+                btn.style.color = 'var(--gray-900)';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 2000);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

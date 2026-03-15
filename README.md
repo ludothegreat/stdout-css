@@ -1,8 +1,10 @@
 # Stdout.css
 
-**A pure CSS framework for building terminal-inspired, information-dense developer tools.**
+**A pure CSS framework for building information-dense developer tools.**
 
-Terminal Brutalism: Hard-edged, asymmetric, unapologetically functional. No marketing fluff, no decorative elements. Every pixel serves a purpose.
+Form follows function. Brutal honesty.
+
+Hard-edged, asymmetric, unapologetically functional. No marketing fluff, no decorative elements. Every pixel serves a purpose.
 
 ---
 
@@ -64,8 +66,8 @@ This means stdout.css has **zero runtime dependencies** and works in any stack.
     <link rel="stylesheet" href="stdout.css">
 </head>
 <body>
-    <h1>TERMINAL BRUTALISM</h1>
-    <p>Hard-edged, asymmetric, information-dense.</p>
+    <h1>STDOUT.CSS</h1>
+    <p>Form follows function. Brutal honesty.</p>
 
     <button class="action-btn">CREATE</button>
     <button class="action-btn secondary">SETTINGS</button>
@@ -133,7 +135,7 @@ See [docs/customization.md](docs/customization.md) for the complete variable ref
 
 ## Documentation
 
-- **[Philosophy](PHILOSOPHY.md)** – Terminal Brutalism manifesto
+- **[Philosophy](PHILOSOPHY.md)** – Design philosophy and principles
 - **[Components](docs/components.md)** – Component catalog with HTML examples
 - **[Customization](docs/customization.md)** – CSS variables reference
 - **[Colors](docs/colors.md)** – Color system and palette
@@ -179,4 +181,4 @@ MIT License – Use freely in personal and commercial projects.
 
 ---
 
-*Terminal Brutalism: Form follows function. Brutal honesty.*
+*Form follows function. Brutal honesty.*
